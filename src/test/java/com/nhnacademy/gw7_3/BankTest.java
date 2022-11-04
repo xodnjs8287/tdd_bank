@@ -29,8 +29,8 @@ public class BankTest {
 
 
     @Test
-    @DisplayName("5.25$ -> 5250원")
-    void Bank_ExchangeDecimalDollarToWon_Through_Bank() {
+    @DisplayName("test")
+            void n_Through_Bank() {
         Bank bank = new Bank();
         Money money = new Money(5.25);
         money.type = Currency.DOLLAR;
@@ -54,12 +54,12 @@ public class BankTest {
     @DisplayName("원화 -> 달러 : 0.005원 이상 -> 0.01원으로 반올림")
     void Bank_AroundMoney_WonToDollar() {
         Bank bank = new Bank();
-        Money money = new Money(500);
+        Money money = new Money(1005);
         money.type = Currency.WON;
 
         double exchange = bank.exchange(money);
 
-        assertThat(bank.aroundDollar(exchange)).isEqualTo(0.5);
+        assertThat(bank.aroundDollar(exchange)).isEqualTo(1.01);
     }
 
     @Test
